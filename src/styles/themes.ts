@@ -13,12 +13,12 @@ export const darkTheme: ITheme = {
       white: '#ffffff'
     },
     primary: {
-      main: '#726a95',
-      contrastText: '#ffffff'
+      main: '#262525',
+      contrastText: '#cec5c5'
     },
     secondary: {
-      main: '#709fb0',
-      contrastText: '#ffffff'
+      main: '#383848',
+      contrastText: '#cec5c5'
     }
   }
 }
@@ -33,12 +33,12 @@ export const lightTheme: ITheme = {
       white: '#222831'
     },
     primary: {
-      main: '#ffffff',
-      contrastText: '#726a95'
+      main: '#262525',
+      contrastText: '#cec5c5'
     },
     secondary: {
-      main: '#ffffff',
-      contrastText: '#709fb0'
+      main: '#d7d6d9',
+      contrastText: '#cec5c5'
     }
   }
 }
