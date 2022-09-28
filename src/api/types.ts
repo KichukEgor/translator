@@ -1,6 +1,9 @@
-type TPair = Record<string, string>
+type TPair = {
+  s: string
+  t: string
+}
 
-type TLanguage = {
+type TApiLanguage = {
   didYouMean: boolean
   iso: string
 }
@@ -18,15 +21,26 @@ export type TTranslateResponse = {
     pronunciation: string
     pairs : TPair[]
     source: {
-      language: TLanguage
+      language: TApiLanguage
       text: TText
     }
   }
   message: string
 }
 
+export type TLanguagesResponse = {
+  code: number
+  data: Record<string, string>
+  message: string
+}
+
+export type TLanguage = {
+  id: string
+  language: string
+}
+
 export type TQueryParams = {
-  text: string
-  tl: string
   sl: string
+  tl: string
+  text: string
 }

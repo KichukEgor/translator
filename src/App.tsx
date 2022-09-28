@@ -1,7 +1,10 @@
 import React from 'react'
+import { QueryClientProvider, QueryClient } from 'react-query'
 import styled, { ThemeProvider } from 'styled-components'
 import Header from './components/Header'
+import Content from './components/Content'
 import { useThemeContext } from './context/ThemeState/ThemeState'
+import { LanguageProvider } from './context/LanguageState/LanguageState'
 import { GlobalStyles } from './styles/global'
 
 const Container = styled.main`
@@ -11,15 +14,27 @@ const Container = styled.main`
 `
 
 function App() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false
+      }
+    }
+  })
   const { theme } = useThemeContext()
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Container className="App">
-        <Header />
-      </Container>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Container>
+          <Header />
+          <LanguageProvider>
+            <Content />
+          </LanguageProvider>
+        </Container>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 
