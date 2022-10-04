@@ -34,24 +34,24 @@ const CustomModal:FC<TProps> = ({ label, children, buttonIcon }) => {
   const handleClose = () => setOpen(false)
 
   return (
-    <Tooltip title={label} arrow>
-      <div>
+    <>
+      <Tooltip title={label} arrow>
         <IconButton color="primary" onClick={handleOpen}>
           {buttonIcon}
         </IconButton>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Content>
-            <Title>{ label }</Title>
-            {children}
-          </Content>
-        </Modal>
-      </div>
-    </Tooltip>
+      </Tooltip>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Content>
+          <Title>{ label }</Title>
+          {children}
+        </Content>
+      </Modal>
+    </>
   )
 }
 
