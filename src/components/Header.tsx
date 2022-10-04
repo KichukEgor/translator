@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Switch, Tooltip } from '@mui/material'
-import { useThemeContext } from '../context/ThemeState/ThemeState'
 import FavoriteTranslations from './FavoriteTranslations'
+import TranslationHistory from './TranslationHistory'
+import Switcher from './Switcher'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -16,28 +16,15 @@ const Buttons = styled.div`
   justify-content: space-between;
 `
 
-const Header = () => {
-  const { theme, toggle } = useThemeContext()
-  const isDark = theme.id === 'dark'
+const Header = () => (
+  <StyledHeader>
+    <h1>Translator</h1>
+    <Buttons>
+      <TranslationHistory />
+      <FavoriteTranslations />
+      <Switcher />
+    </Buttons>
+  </StyledHeader>
+)
 
-  return (
-    <StyledHeader>
-      <h1>Translator</h1>
-
-      <Buttons>
-        <FavoriteTranslations />
-        <Tooltip title="Switch theme" arrow>
-          <span>
-            <Switch
-              color="primary"
-              checked={isDark}
-              onClick={() => toggle()}
-            />
-          </span>
-        </Tooltip>
-      </Buttons>
-
-    </StyledHeader>
-  )
-}
 export default Header
