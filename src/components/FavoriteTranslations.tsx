@@ -12,19 +12,17 @@ const Text = styled.div`
   text-align: center;
 `
 
-const Message = <Text> Favorite translations not added </Text>
+const Message = () => <Text> Favorite translations not added </Text>
 
 const FavoriteTranslations = () => {
   const [favorites] = useLocalStorage<TPair[]>('favorites', [])
 
   return (
-    <div>
-      <CustomModal label="Favorites" buttonIcon={<Favorite />}>
-        { favorites.length > 0
-          ? <CustomTablePagination list={favorites}/>
-          : Message}
-      </CustomModal>
-    </div>
+    <CustomModal label="Favorites" buttonIcon={<Favorite />}>
+      { favorites.length > 0
+        ? <CustomTablePagination list={favorites}/>
+        : <Message />}
+    </CustomModal>
   )
 }
 
