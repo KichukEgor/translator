@@ -2,7 +2,7 @@ import React from 'react'
 import { Favorite } from '@mui/icons-material'
 import styled from 'styled-components'
 import CustomModal from './CustomModal'
-import CustomTablePagination from './CustomTablePagination'
+import CustomTable from './CustomTable'
 import useLocalStorage from '../hooks/useLocalStorage'
 import { TPair } from '../api/types'
 
@@ -20,7 +20,7 @@ const FavoriteTranslations = () => {
   return (
     <CustomModal label="Favorites" buttonIcon={<Favorite />}>
       { favorites.length > 0
-        ? <CustomTablePagination list={favorites}/>
+        ? <CustomTable list={favorites}/>
         : <Message />}
     </CustomModal>
   )

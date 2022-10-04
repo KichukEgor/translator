@@ -4,13 +4,15 @@ import TablePaginationActions from './TablePaginationsActions'
 import { TPair } from '../api/types'
 
 const Container = styled.div`
-  min-height: 400px;
+  min-height: 300px;
   max-width: 300px;
+  position: relative;
   margin: 0 auto;
 `
 
 const Headers = styled.div`
   width: 100%;
+  margin: 8px 0;
   padding: 16px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -44,11 +46,18 @@ const Row = styled.div`
   }
 `
 
+const AbsoluteBottom = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,-25%);
+`
+
 type TProps = {
   list: TPair[]
 }
 
-const CustomTablePagination:FC<TProps> = ({ list }) => {
+const CustomTable:FC<TProps> = ({ list }) => {
   const [page, setPage] = useState(0)
   const ROWS_PER_PAGE = 5
 
@@ -76,15 +85,17 @@ const CustomTablePagination:FC<TProps> = ({ list }) => {
         </Row>
       ))}
       {list.length > ROWS_PER_PAGE && (
-        <TablePaginationActions
-          count={list.length}
-          page={page}
-          rowsPerPage={ROWS_PER_PAGE}
-          onPageChange={handleChangePage}
-        />
+        <AbsoluteBottom>
+          <TablePaginationActions
+            count={list.length}
+            page={page}
+            rowsPerPage={ROWS_PER_PAGE}
+            onPageChange={handleChangePage}
+          />
+        </AbsoluteBottom>
       )}
     </Container>
   )
 }
 
-export default CustomTablePagination
+export default CustomTable
