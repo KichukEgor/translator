@@ -6,6 +6,7 @@ import LanguageFrom from './LanguageFrom'
 import LanguageTo from './LanguageTo'
 
 const Container = styled.section`
+  margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px 1fr;
