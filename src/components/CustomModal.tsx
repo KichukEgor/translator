@@ -1,6 +1,6 @@
 import { FC, ReactNode, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Modal } from '@mui/material'
+import { IconButton, Modal, Tooltip } from '@mui/material'
 
 const Content = styled.div`
   width: 400px;
@@ -34,22 +34,24 @@ const CustomModal:FC<TProps> = ({ label, children, buttonIcon }) => {
   const handleClose = () => setOpen(false)
 
   return (
-    <div>
-      <Button startIcon={buttonIcon} onClick={handleOpen}>
-        { label }
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Content>
-          <Title>{ label }</Title>
-          {children}
-        </Content>
-      </Modal>
-    </div>
+    <Tooltip title={label} arrow>
+      <div>
+        <IconButton color="primary" onClick={handleOpen}>
+          {buttonIcon}
+        </IconButton>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Content>
+            <Title>{ label }</Title>
+            {children}
+          </Content>
+        </Modal>
+      </div>
+    </Tooltip>
   )
 }
 
