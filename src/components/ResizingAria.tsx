@@ -5,7 +5,7 @@ const Textarea = styled.textarea`
   min-height: 80px;
   width: 100%;
   font-size: 24px;
-  color: ${(props) => props.theme.palette.common.white};
+  color: ${(props) => props.theme.palette.primary.contrastText};
   border: none;
   background: transparent;
   resize: none;
