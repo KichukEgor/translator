@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useTranslationContext } from '../context/TranslationState/TranslationState'
 import { useTranslateMutation } from '../api/api'
 import AddFavoritesButton from './AddFavoritesButton'
+import useTranslationHistory from '../hooks/useTranslationHistory'
 
 const Container = styled.div`
   height: 100%;
@@ -21,9 +22,10 @@ const AbsoluteRightBottom = styled.span`
 const OutputAria = () => {
   const { inputLanguage, outputLanguage, inputText } = useTranslationContext()
   const { isLoading, data, mutate } = useTranslateMutation()
+  useTranslationHistory(data)
 
   useEffect(() => {
-    if (inputText) {
+    if (inputText.length) {
       mutate({
         sl: inputLanguage,
         tl: outputLanguage,
@@ -38,12 +40,14 @@ const OutputAria = () => {
 
   return (
     <Container>
-      {inputText ? data?.data.translation : ''}
-      {data?.data.translation && (
-        <AbsoluteRightBottom>
-          <AddFavoritesButton translationPairs={data?.data.pairs} />
-        </AbsoluteRightBottom>
-      )}
+      {data?.data.translation && !!inputText.length ? (
+        <>
+          <div>{data?.data.translation}</div>
+          <AbsoluteRightBottom>
+            <AddFavoritesButton translationPairs={data?.data.pairs} />
+          </AbsoluteRightBottom>
+        </>
+      ) : ''}
     </Container>
   )
 }
