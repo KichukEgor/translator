@@ -6,7 +6,6 @@ import LanguageFrom from './LanguageFrom'
 import LanguageTo from './LanguageTo'
 
 const Container = styled.section`
-  margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px 1fr;
@@ -16,16 +15,14 @@ const Container = styled.section`
 
 const GridItem = styled.div`
   padding: 20px;
-  border: 1px solid ${(props) => (props.theme.palette.secondary.contrastText)};
-  border-radius: 4px;
+  border: 1px solid ${({ theme }) => (theme.palette.secondary.contrastText)};
+  border-radius: ${({ theme }) => (theme.borderRadius)};
 `
 
 const SecondaryGridItem = styled.div`
-  padding: 20px;
-  font-size: 24px;
-  background: ${(props) => (props.theme.palette.secondary.main)};
-  border: 1px solid ${(props) => (props.theme.palette.secondary.contrastText)};
-  border-radius: 4px;
+  background: ${({ theme }) => (theme.palette.secondary.main)};
+  border: 1px solid ${({ theme }) => (theme.palette.secondary.contrastText)};
+  border-radius: ${({ theme }) => (theme.borderRadius)};
 `
 
 const Content = () => (
