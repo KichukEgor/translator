@@ -9,6 +9,12 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 
+button {
+  :hover {
+    cursor: pointer;
+  }
+}
+
 textarea#story {
   -moz-appearance:none;
   outline:0 none transparent;
@@ -20,8 +26,8 @@ textarea:focus, input:focus{
 
 
 body {
-  background-color: ${(props) => props.theme.palette.common.black};
-  color: ${(props) => props.theme.palette.common.white};
+  background-color: ${(props) => props.theme.palette.primary.main};
+  color: ${(props) => props.theme.palette.primary.contrastText};
   font-family: monospace;
   overflow-x: hidden;
   transition: .3s ease;

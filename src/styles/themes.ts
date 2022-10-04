@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components'
 
 export interface ITheme extends DefaultTheme {
-  id: string
+  id: string,
 }
 
 export const darkTheme: ITheme = {
@@ -14,7 +14,7 @@ export const darkTheme: ITheme = {
     },
     primary: {
       main: '#262525',
-      contrastText: '#cec5c5'
+      contrastText: '#ffffff'
     },
     secondary: {
       main: '#383848',
@@ -29,16 +29,16 @@ export const lightTheme: ITheme = {
 
   palette: {
     common: {
-      black: '#ffffff',
-      white: '#222831'
+      black: '#222831',
+      white: '#ffffff'
     },
     primary: {
-      main: '#262525',
-      contrastText: '#cec5c5'
+      main: '#ffffff',
+      contrastText: '#262525'
     },
     secondary: {
-      main: '#d7d6d9',
-      contrastText: '#cec5c5'
+      main: '#ebebef',
+      contrastText: '#2d2d2d'
     }
   }
 }
