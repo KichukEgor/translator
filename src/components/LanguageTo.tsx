@@ -1,9 +1,9 @@
 import React from 'react'
 import CustomSelect from './CustomSelect'
-import { useLanguageContext } from '../context/LanguageState/LanguageState'
+import { useTranslationContext } from '../context/TranslationState/TranslationState'
 
 const LanguageTo = () => {
-  const { languageOptions, setOutputLanguage, outputLanguage } = useLanguageContext()
+  const { languageOptions, setOutputLanguage, outputLanguage } = useTranslationContext()
 
   return (
     <CustomSelect

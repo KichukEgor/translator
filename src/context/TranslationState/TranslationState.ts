@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import constate from 'constate'
 import { useLanguagesQuery } from '../../api/api'
 
-const useLanguage = () => {
+const useTranslation = () => {
   const { data: languageOptions } = useLanguagesQuery()
   const [inputLanguage, setInputLanguage] = useState('')
   const [outputLanguage, setOutputLanguage] = useState('')
@@ -26,4 +26,4 @@ const useLanguage = () => {
   }
 }
 
-export const [LanguageProvider, useLanguageContext] = constate(useLanguage)
+export const [TranslationProvider, useTranslationContext] = constate(useTranslation)

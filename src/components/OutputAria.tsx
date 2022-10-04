@@ -1,10 +1,25 @@
 import React, { useEffect } from 'react'
 import { Skeleton } from '@mui/material'
-import { useLanguageContext } from '../context/LanguageState/LanguageState'
+import styled from 'styled-components'
+import { useTranslationContext } from '../context/TranslationState/TranslationState'
 import { useTranslateMutation } from '../api/api'
+import AddFavoritesButton from './AddFavoritesButton'
+
+const Container = styled.div`
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  font-size: 24px;
+`
+
+const AbsoluteRightBottom = styled.span`
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+`
 
 const OutputAria = () => {
-  const { inputLanguage, outputLanguage, inputText } = useLanguageContext()
+  const { inputLanguage, outputLanguage, inputText } = useTranslationContext()
   const { isLoading, data, mutate } = useTranslateMutation()
 
   useEffect(() => {
@@ -17,14 +32,19 @@ const OutputAria = () => {
     }
   }, [inputLanguage, outputLanguage, inputText])
 
-  if (isLoading || !data) {
-    return <Skeleton variant="rounded"/>
+  if (isLoading) {
+    return <Container><Skeleton variant="rounded"/></Container>
   }
 
   return (
-    <div>
+    <Container>
       {inputText ? data?.data.translation : ''}
-    </div>
+      {data?.data.translation && (
+        <AbsoluteRightBottom>
+          <AddFavoritesButton translationPairs={data?.data.pairs} />
+        </AbsoluteRightBottom>
+      )}
+    </Container>
   )
 }
 
