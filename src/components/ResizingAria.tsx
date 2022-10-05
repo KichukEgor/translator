@@ -30,10 +30,10 @@ const ResizingAria:FC<TProps> = ({ value, setValue }) => {
 
   return (
     <Textarea
-      className="dd"
       ref={textAreaRef}
       placeholder="Enter text"
       onChange={(e) => setValue(e.target.value)}
+      autoFocus
       rows={1}
     />
   )
