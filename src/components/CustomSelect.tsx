@@ -6,22 +6,23 @@ import { TLanguage } from '../api/types'
 
 const StyledLabel = styled(InputLabel)`
  && {
+   padding: 0 4px;
+   border-radius: ${({ theme }) => theme.borderRadius};
+   background: ${({ theme }) => theme.palette.primary.main};
    color: ${({ theme }) => theme.palette.primary.contrastText};
  }
 `
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
-  'label + &': {
-    marginTop: '10px'
-  },
   '& .MuiInputBase-input': {
-    borderRadius: theme.borderRadius,
     position: 'relative',
+    padding: '10px 26px 10px 12px',
+    fontSize: 16,
+    border: `1px solid ${theme.palette.primary.contrastText}`,
+    borderRadius: theme.borderRadius,
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
-    border: `1px solid ${theme.palette.primary.contrastText}`,
-    fontSize: 16,
-    padding: '10px 26px 10px 12px',
+    textTransform: 'capitalize',
     '&:focus': {
       borderRadius: theme.borderRadius,
       borderColor: '#80b0ee',
@@ -29,6 +30,12 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
     }
   }
 }))
+
+const StyledMenuItem = styled(MenuItem)`
+  && {
+    text-transform: capitalize;
+  }
+`
 
 type TProps = {
   handleChange: any
@@ -53,7 +60,7 @@ const CustomSelect:FC<TProps> = ({ options, handleChange, defaultOption }) => {
         onChange={(e) => handleChange(e.target.value)}
       >
         {options.map(({ id, language }) =>
-          <MenuItem key={id} value={id}>{language}</MenuItem>)}
+          <StyledMenuItem key={id} value={id}>{language}</StyledMenuItem>)}
       </Select>
     </FormControl>
   )
