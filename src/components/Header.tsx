@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import FavoriteTranslations from './FavoriteTranslations'
 import TranslationHistory from './TranslationHistory'
-import Switcher from './Switcher'
+import ThemeSwitcher from './ThemeSwitcher'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -22,7 +22,7 @@ const Header = () => (
     <Buttons>
       <TranslationHistory />
       <FavoriteTranslations />
-      <Switcher />
+      <ThemeSwitcher />
     </Buttons>
   </StyledHeader>
 )

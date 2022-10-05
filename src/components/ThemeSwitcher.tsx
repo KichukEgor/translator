@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Tooltip } from '@mui/material'
 import { useThemeContext } from '../context/ThemeState/ThemeState'
 
-const Switcher = () => {
+const ThemeSwitcher = () => {
   const { theme, toggle } = useThemeContext()
   const isDark = theme.id === 'dark'
 
@@ -19,4 +19,4 @@ const Switcher = () => {
   )
 }
 
-export default Switcher
+export default ThemeSwitcher
