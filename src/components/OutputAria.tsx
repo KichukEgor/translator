@@ -2,13 +2,12 @@ import React, { useEffect } from 'react'
 import { Skeleton } from '@mui/material'
 import styled from 'styled-components'
 import { useTranslationContext } from '../context/TranslationState/TranslationState'
-import { useTranslateMutation } from '../api/api'
 import AddFavoritesButton from './AddFavoritesButton'
 import useTranslationHistory from '../hooks/useTranslationHistory'
 
 const Container = styled.div`
   height: 100%;
-  padding: 20px;
+  min-height: 80px;
   position: relative;
   font-size: 24px;
 `
