@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { IconButton, Modal, Tooltip } from '@mui/material'
 
 const Content = styled.div`
-  width: 400px;
+  min-width: 300px;
   min-height: 300px;
   position: absolute;
   top: 50%;

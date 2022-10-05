@@ -10,7 +10,7 @@ const Container = styled.section`
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 10px;
+  grid-row-gap: 10px;
   border-radius: 8px;
 `
 
@@ -23,6 +23,10 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
 `
 
 const GridItem = styled.div`
@@ -32,6 +36,7 @@ const GridItem = styled.div`
 `
 
 const SecondaryGridItem = styled.div`
+  padding: 20px;
   background: ${({ theme }) => (theme.palette.secondary.main)};
   border: 1px solid ${({ theme }) => (theme.palette.secondary.contrastText)};
   border-radius: ${({ theme }) => (theme.borderRadius)};
