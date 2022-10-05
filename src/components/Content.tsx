@@ -4,14 +4,25 @@ import InputAria from './InputAria'
 import OutputAria from './OutputAria'
 import LanguageFrom from './LanguageFrom'
 import LanguageTo from './LanguageTo'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Container = styled.section`
   margin-top: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 10px;
   border-radius: 8px;
+`
+
+const LanguageSelects = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 30px 1fr;
+`
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
 `
 
 const GridItem = styled.div`
@@ -26,12 +37,21 @@ const SecondaryGridItem = styled.div`
   border-radius: ${({ theme }) => (theme.borderRadius)};
 `
 
+const LanguageMenu = () => (
+  <LanguageSelects>
+    <LanguageFrom />
+    <LanguageSwitcher />
+    <LanguageTo />
+  </LanguageSelects>
+)
+
 const Content = () => (
   <Container>
-    <LanguageFrom />
-    <LanguageTo />
-    <GridItem><InputAria/></GridItem>
-    <SecondaryGridItem><OutputAria/></SecondaryGridItem>
+    <LanguageMenu />
+    <Wrapper>
+      <GridItem><InputAria/></GridItem>
+      <SecondaryGridItem><OutputAria/></SecondaryGridItem>
+    </Wrapper>
   </Container>
 )
 
