@@ -13,14 +13,17 @@ const Container = styled.main`
   margin: 0 auto;
 `
 
-function App() {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false
-      }
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+      staleTime: 5000
     }
-  })
+  }
+})
+
+function App() {
   const { theme } = useThemeContext()
 
   return (
