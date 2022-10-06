@@ -38,7 +38,6 @@ const GridItem = styled.div`
 `
 
 const SecondaryGridItem = styled.div`
-  padding: 20px;
   background: ${({ theme }) => (theme.palette.secondary.main)};
   border: 1px solid ${({ theme }) => (theme.palette.secondary.contrastText)};
   border-radius: ${({ theme }) => (theme.borderRadius)};
