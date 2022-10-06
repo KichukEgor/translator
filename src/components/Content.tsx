@@ -37,11 +37,8 @@ const GridItem = styled.div`
   border-radius: ${({ theme }) => (theme.borderRadius)};
 `
 
-const SecondaryGridItem = styled.div`
-  padding: 20px;
+const SecondaryGridItem = styled(GridItem)`
   background: ${({ theme }) => (theme.palette.secondary.main)};
-  border: 1px solid ${({ theme }) => (theme.palette.secondary.contrastText)};
-  border-radius: ${({ theme }) => (theme.borderRadius)};
 `
 
 const LanguageMenu = () => (
