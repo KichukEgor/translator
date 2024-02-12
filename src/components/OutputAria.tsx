@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useTranslationContext } from '../context/TranslationState/TranslationState'
 import AddFavoritesButton from './AddFavoritesButton'
 import useTranslationHistory from '../hooks/useTranslationHistory'
+import { useTranslateMutation } from '../api/api'
 
 const Container = styled.div`
   height: 100%;

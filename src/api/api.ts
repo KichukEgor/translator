@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useMutation, useQuery } from 'react-query'
-import { TQueryParams, TTranslateResponse } from './types'
+import { TLanguage, TQueryParams, TTranslateResponse } from './types'
 
-async function getLanguages(): Promise<Record<string, string>> {
+async function getLanguages(): Promise<TLanguage[]> {
   try {
     const response = await axios.get(
       'https://google-translate20.p.rapidapi.com/languages',
@@ -19,7 +19,7 @@ async function getLanguages(): Promise<Record<string, string>> {
   }
 }
 
-export const useLanguagesQuery = () => useQuery<Record<string, string>, Error>(['Languages'], getLanguages)
+export const useLanguagesQuery = () => useQuery<TLanguage[], Error>(['Languages'], getLanguages)
 
 async function getTranslate(params: TQueryParams): Promise<TTranslateResponse> {
   try {

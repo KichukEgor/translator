@@ -1,14 +1,14 @@
-type TPair = {
+export type TPair = {
   s: string
   t: string
 }
 
-type TApiLanguage = {
+export type TApiLanguage = {
   didYouMean: boolean
   iso: string
 }
 
-type TText = {
+export type TText = {
   autoCorrected: boolean
   value: string
   didYouMean: boolean
@@ -25,12 +25,6 @@ export type TTranslateResponse = {
       text: TText
     }
   }
-  message: string
-}
-
-export type TLanguagesResponse = {
-  code: number
-  data: Record<string, string>
   message: string
 }
 
